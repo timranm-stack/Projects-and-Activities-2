@@ -6,10 +6,39 @@
     <title>Document</title>
 </head>
 <body>
+    <h2>JavaScript Objects and its Properties</h2>
+
+    <p>There are two different ways to access an object property</p>
+    <p>You can use .property or ["property"].</p>
+    <p id="demo"></p>
     <script>
       <h1> Built-in Objects</h1>
       Math.random(10)
       <p> <b>Math</b> is an object and <b>.random()</b> is a method.
     </script>
+    <script>
+         // Create an object:
+        var person = {
+            firstName: "Muhammad Taha",
+            age: 14,
+        };
+        // Display some data from the object:
+        document.getElementById("demo").innerHTML = person.firstName + " is " + person.age + "years old";
+    </script>
+    <p>Finding the largest number with help of Objects</p>
+    <p id="result"></p>
+    <script>
+         function findMax() {
+            var max = 0;
+            for(i = 0; i < arguments.length;  i++) {
+                if (arguments[i] > max) {
+                    max=arguments[i];
+                }
+            }
+            return max;
+        }
+        document.getElementById("result").innerHTML =findMax(5, 8, 3, 7, 29)
+    </script>
 </body>
+
 </html>
