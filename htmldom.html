@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>DOM Node Value Transfer</title>
+</head>
+<body>
+  <h2>Assigning Node Values with DOM</h2>
+
+  <label for="source">Source Node:</label>
+  <input type="text" id="source" value="Taha's DOM mastery"><br><br>
+
+  <label for="target">Target Node:</label>
+  <input type="text" id="target" value=""><br><br>
+
+  <button onclick="transferValue()">Transfer Value</button>
+
+  <script>
+    function transferValue() {
+      const sourceNode = document.getElementById("source");
+      const targetNode = document.getElementById("target");
+
+      targetNode.value = sourceNode.value;
+    }
+  </script>
+</body>
+</html>
