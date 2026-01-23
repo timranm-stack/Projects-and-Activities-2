@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Map and Arrange an Array</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 30px;
+    }
+    label, button {
+      margin-top: 10px;
+      display: block;
+    }
+    .output {
+      margin-top: 20px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      background: #f9f9f9;
+    }
+    .output p {
+      margin: 5px 0;
+    }
+  </style>
+</head>
+<body>
+  <h1>Map and Arrange an Array</h1>
+  <p>Enter numbers separated by commas, and a number to map (multiply) them by.</p>
+
+  <label>
+    Original array:
+    <input id="arrayInput" type="text" placeholder="e.g. 5, 2, 9, 1, 3" />
+  </label>
+
+  <label>
+    Map with number:
+    <input id="mapNumber" type="number" placeholder="e.g. 2" />
+  </label>
+
+  <button id="processBtn">Map and Sort</button>
+
+  <div class="output" id="output">
+    <p><strong>Original array:</strong> <span id="originalArray"></span></p>
+    <p><strong>Mapped array:</strong> <span id="mappedArray"></span></p>
+    <p><strong>Ascending order:</strong> <span id="ascendingArray"></span></p>
+    <p><strong>Descending order:</strong> <span id="descendingArray"></span></p>
+  </div>
+
+  <script>
+    const arrayInput = document.getElementById('arrayInput');
+    const mapNumberInput = document.getElementById('mapNumber');
+    const processBtn = document.getElementById('processBtn');
+
+    const originalArraySpan = document.getElementById('originalArray');
+    const mappedArraySpan = document.getElementById('mappedArray');
+    const ascendingArraySpan = document.getElementById('ascendingArray');
+    const descendingArraySpan = document.getElementById('descendingArray');
+
+    processBtn.addEventListener('click', () => {
+      // Get and clean the array input
+      const rawArray = arrayInput.value
+        .split(',')
+        .map(item => item.trim())
+        .filter(item => item !== '')
+        .map(Number);
+
+      const mapNumber = Number(mapNumberInput.value);
+
+      if (rawArray.length === 0 || isNaN(mapNumber)) {
+        alert('Please enter a valid array and a valid map number.');
+        return;
+      }
+
+      // Show original array
+      originalArraySpan.textContent = '[' + rawArray.join(', ') + ']';
+
+      // Map the array (multiply each element by mapNumber)
+      const mappedArray = rawArray.map(num => num * mapNumber);
+      mappedArraySpan.textContent = '[' + mappedArray.join(', ') + ']';
+
+      // Sort ascending
+      const ascending = [...mappedArray].sort((a, b) => a - b);
+      ascendingArraySpan.textContent = '[' + ascending.join(', ') + ']';
+
+      // Sort descending
+      const descending = [...mappedArray].sort((a, b) => b - a);
+      descendingArraySpan.textContent = '[' + descending.join(', ') + ']';
+    });
+  </script>
+</body>
+</html>
