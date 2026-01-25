@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Handle Errors in JS</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    #errorBox {
+      margin-top: 15px;
+      padding: 10px;
+      border-radius: 4px;
+      display: none;
+    }
+    .error {
+      background-color: #ffe5e5;
+      color: #b30000;
+      border: 1px solid #b30000;
+    }
+    .success {
+      background-color: #e5ffe5;
+      color: #006600;
+      border: 1px solid #006600;
+    }
+  </style>
+</head>
+<body>
+  <h1>Handle Errors in JS</h1>
+  <p>Type a number. If it’s not a number, we’ll throw and catch an error.</p>
+
+  <input id="userInput" type="text" placeholder="Enter a number" />
+  <button onclick="checkNumber()">Check</button>
+
+  <div id="errorBox"></div>
+
+  <script>
+    function checkNumber() {
+      const input = document.getElementById("userInput").value;
+      const box = document.getElementById("errorBox");
+
+      try {
+        // Create an error on purpose if input is not a number
+        if (input.trim() === "") {
+          throw new Error("Input cannot be empty.");
+        }
+
+        const num = Number(input);
+
+        if (isNaN(num)) {
+          throw new Error("That is not a valid number.");
+        }
+
+        // If everything is fine, show success
+        box.style.display = "block";
+        box.className = "success";
+        box.textContent = "Great! You entered a valid number: " + num;
+      } catch (err) {
+        // Handle the error and show message
+        box.style.display = "block";
+        box.className = "error";
+        box.textContent = "Error: " + err.message;
+      } finally {
+        // This always runs
+        console.log("Validation attempt finished.");
+      }
+    }
+  </script>
+</body>
+</html>
