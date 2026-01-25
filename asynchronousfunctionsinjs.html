@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Async/Await Demo</title>
+</head>
+<body>
+  <h2>Asynchronous Function Example</h2>
+  <button onclick="showUserData()">Get User Data</button>
+  <p id="output"></p>
+
+  <script>
+    // Simulated asynchronous function
+    async function fetchUserData() {
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          resolve({ name: "Riya", age: 12, grade: 7 });
+        }, 2000); // Simulates network delay
+      });
+    }
+
+    // Function dependent on the async result
+    async function showUserData() {
+      document.getElementById("output").innerHTML = "Loading...";
+      const user = await fetchUserData();
+      document.getElementById("output").innerHTML = `Name: ${user.name}, Age: ${user.age}, Grade: ${user.grade}`;
+    }
+  </script>
+</body>
+</html>
