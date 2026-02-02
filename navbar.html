@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>My Website - Part 1</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    /* Basic layout styling (optional) */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    header {
+      background-color: #1e1e2f;
+      color: white;
+      padding: 10px 20px;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 15px;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-links li a {
+      color: white;
+      text-decoration: none;
+    }
+
+    .banner {
+      background: url("banner-image.jpg") center/cover no-repeat;
+      height: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-align: center;
+    }
+
+    .banner-content {
+      background: rgba(0, 0, 0, 0.5);
+      padding: 20px 30px;
+      border-radius: 8px;
+    }
+
+    main {
+      padding: 20px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 10px;
+      background-color: #f2f2f2;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation bar -->
+  <header>
+    <nav>
+      <div class="logo">MyWebsite</div>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Banner image section -->
+  <section class="banner" id="home">
+    <div class="banner-content">
+      <h1>Welcome to My Website</h1>
+      <p>Clean layout, simple navigation, and a clear message.</p>
+    </div>
+  </section>
+
+  <!-- Main layout content -->
+  <main>
+    <section id="about">
+      <h2>About</h2>
+      <p>Write a short description about the purpose of your website here.</p>
+    </section>
+
+    <section id="services">
+      <h2>Services</h2>
+      <p>Describe what your website offers or what users can do here.</p>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>Add contact details or a simple contact form later.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 MyWebsite. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
